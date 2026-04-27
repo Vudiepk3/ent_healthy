@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "How to Safely Remove Tonsil Stones at Home",
+        "description": "Learn about tonsil stones, their causes, and safe removal methods explained step by step by experts. Tonsil stones can be uncomfortable and cause bad breath, but there are ways to manage them safely.",
+        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "category": "Throat"
+    },
+    {
+        "id": 2,
+        "title": "Understanding Chronic Sinusitis",
+        "description": "Comprehensive guide on managing chronic sinusitis and available treatment options today. Chronic sinusitis occurs when the nasal cavities become swollen and inflamed for three months or longer.",
+        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "category": "Nose"
+    },
+    {
+        "id": 3,
+        "title": "Tinnitus: Causes and Management Strategies",
+        "description": "Expert advice on dealing with ringing in the ears and available therapies today. Tinnitus is when you hear ringing or noise in one or both ears with no external sound source.",
+        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "category": "Ear"
+    }
+]
