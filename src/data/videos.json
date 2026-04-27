@@ -1,26 +1,513 @@
 [
-    {
-        "id": 1,
-        "title": "How to Safely Remove Tonsil Stones at Home",
-        "description": "Learn about tonsil stones, their causes, and safe removal methods explained step by step by experts. Tonsil stones can be uncomfortable and cause bad breath, but there are ways to manage them safely.",
-        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "category": "Throat"
-    },
-    {
-        "id": 2,
-        "title": "Understanding Chronic Sinusitis",
-        "description": "Comprehensive guide on managing chronic sinusitis and available treatment options today. Chronic sinusitis occurs when the nasal cavities become swollen and inflamed for three months or longer.",
-        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "category": "Nose"
-    },
-    {
-        "id": 3,
-        "title": "Tinnitus: Causes and Management Strategies",
-        "description": "Expert advice on dealing with ringing in the ears and available therapies today. Tinnitus is when you hear ringing or noise in one or both ears with no external sound source.",
-        "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "category": "Ear"
-    }
+  {
+    "id": "1",
+    "title": "Tonsil stone removal | What are tonsil stones?",
+    "description": "What are tonsil stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=1",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "2",
+    "title": "Tonsil stone removal | What causes tonsil stones?",
+    "description": "What causes tonsil stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=2",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "3",
+    "title": "Tonsil stone removal | What are the symptoms of tonsil stones?",
+    "description": "What are the symptoms of tonsil stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=3",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "4",
+    "title": "Tonsil stone removal | How to remove tonsil stones safely ?",
+    "description": "How to remove tonsil stones safely ?",
+    "videoUrl": "https://www.youtube.com/watch?v=4",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "5",
+    "title": "Tonsil stone removal |  How to prevent tonsil stones ?",
+    "description": "How to prevent tonsil stones ?",
+    "videoUrl": "https://www.youtube.com/watch?v=5",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "6",
+    "title": "Tonsil stone removal |  When should you see a healthcare professional about tonsil stones?",
+    "description": "When should you see a healthcare professional about tonsil stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=6",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "7",
+    "title": "Booger removal | How do deep boogers form ?",
+    "description": "How do deep boogers form ?",
+    "videoUrl": "https://www.youtube.com/watch?v=7",
+    "category": "Booger removal"
+  },
+  {
+    "id": "8",
+    "title": "Tonsil stone removal | Why do I keep getting tonsil stones?",
+    "description": "Why do I keep getting tonsil stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=8",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "9",
+    "title": "Tonsil stone removal | How To Prevent Tonsil Stones Without Surgery",
+    "description": "How To Prevent Tonsil Stones Without Surgery",
+    "videoUrl": "https://www.youtube.com/watch?v=9",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "10",
+    "title": "Booger removal | Why do boogers become hard and uncomfortable ?",
+    "description": "Why do boogers become hard and uncomfortable ?",
+    "videoUrl": "https://www.youtube.com/watch?v=10",
+    "category": "Booger removal"
+  },
+  {
+    "id": "11",
+    "title": "Tonsil stone removal | Are tonsil stones painful?",
+    "description": "Are tonsil stones painful?",
+    "videoUrl": "https://www.youtube.com/watch?v=11",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "12",
+    "title": "Booger removal | How to safely remove boogers from your own nose ?",
+    "description": "How to safely remove boogers from your own nose ?",
+    "videoUrl": "https://www.youtube.com/watch?v=12",
+    "category": "Booger removal"
+  },
+  {
+    "id": "13",
+    "title": "Booger removal | How to safely remove deep boogers ?",
+    "description": "How to safely remove deep boogers ?",
+    "videoUrl": "https://www.youtube.com/watch?v=13",
+    "category": "Booger removal"
+  },
+  {
+    "id": "14",
+    "title": "Tonsil stone removal | Can You Cough Up Tonsil Stones?",
+    "description": "Can You Cough Up Tonsil Stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=14",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "15",
+    "title": "Tonsil stone removal | Preventing The Recurrence Of Tonsil Stones",
+    "description": "Preventing The Recurrence Of Tonsil Stones",
+    "videoUrl": "https://www.youtube.com/watch?v=15",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "16",
+    "title": "Booger removal | How to remove deep boogers (what not to do) ?",
+    "description": "How to remove deep boogers (what not to do) ?",
+    "videoUrl": "https://www.youtube.com/watch?v=16",
+    "category": "Booger removal"
+  },
+  {
+    "id": "17",
+    "title": "Booger removal | When to get medical help ?",
+    "description": "When to get medical help ?",
+    "videoUrl": "https://www.youtube.com/watch?v=17",
+    "category": "Booger removal"
+  },
+  {
+    "id": "18",
+    "title": "Booger removal | Are boogers good or bad for you ?",
+    "description": "Are boogers good or bad for you ?",
+    "videoUrl": "https://www.youtube.com/watch?v=18",
+    "category": "Booger removal"
+  },
+  {
+    "id": "19",
+    "title": "Tonsil stone removal | Precautions Part2",
+    "description": "Precautions Part2",
+    "videoUrl": "https://www.youtube.com/watch?v=19",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "20",
+    "title": "Tonsil stone removal | How to remove tonsil stones at home Part2",
+    "description": "How to remove tonsil stones at home Part2",
+    "videoUrl": "https://www.youtube.com/watch?v=20",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "21",
+    "title": "Tonsil stone removal | Precautions Part1",
+    "description": "Precautions Part1",
+    "videoUrl": "https://www.youtube.com/watch?v=21",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "22",
+    "title": "Booger removal | How to prevent deep booger ?",
+    "description": "How to prevent deep booger ?",
+    "videoUrl": "https://www.youtube.com/watch?v=22",
+    "category": "Booger removal"
+  },
+  {
+    "id": "23",
+    "title": "Nose Cleaning | Elevate Your Head",
+    "description": "Elevate Your Head",
+    "videoUrl": "https://www.youtube.com/watch?v=23",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "24",
+    "title": "Tonsil stone removal | How To Tell If You Have Tonsil Stones ?",
+    "description": "How To Tell If You Have Tonsil Stones ?",
+    "videoUrl": "https://www.youtube.com/watch?v=24",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "25",
+    "title": "Tonsil stone removal | Signs you may have tonsil stones",
+    "description": "Signs you may have tonsil stones",
+    "videoUrl": "https://www.youtube.com/watch?v=25",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "26",
+    "title": "Booger removal | Everyone Picks Their Nose — But Are You Doing It Wrong?",
+    "description": "Everyone Picks Their Nose — But Are You Doing It Wrong?",
+    "videoUrl": "https://www.youtube.com/watch?v=26",
+    "category": "Booger removal"
+  },
+  {
+    "id": "27",
+    "title": "Tonsil stone removal | How Do I Get Rid Of Tonsil Stones?",
+    "description": "How Do I Get Rid Of Tonsil Stones?",
+    "videoUrl": "https://www.youtube.com/watch?v=27",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "28",
+    "title": "Tonsil stone removal | How to remove tonsil stones at home Part1",
+    "description": "How to remove tonsil stones at home Part1",
+    "videoUrl": "https://www.youtube.com/watch?v=28",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "29",
+    "title": "Booger removal | What Causes Hard, Dry Boogers?",
+    "description": "What Causes Hard, Dry Boogers?",
+    "videoUrl": "https://www.youtube.com/watch?v=29",
+    "category": "Booger removal"
+  },
+  {
+    "id": "30",
+    "title": "Booger removal | Is It Safe To Pick Your Nose?",
+    "description": "Is It Safe To Pick Your Nose?",
+    "videoUrl": "https://www.youtube.com/watch?v=30",
+    "category": "Booger removal"
+  },
+  {
+    "id": "31",
+    "title": "Booger removal | What’s The Best Way To Remove Hard, Dry Boogers?",
+    "description": "What’s The Best Way To Remove Hard, Dry Boogers?",
+    "videoUrl": "https://www.youtube.com/watch?v=31",
+    "category": "Booger removal"
+  },
+  {
+    "id": "32",
+    "title": "Booger removal | Treating the causes of mucus",
+    "description": "Treating the causes of mucus",
+    "videoUrl": "https://www.youtube.com/watch?v=32",
+    "category": "Booger removal"
+  },
+  {
+    "id": "33",
+    "title": "Booger removal | What Are The Risks Of Eating Boogers?",
+    "description": "What Are The Risks Of Eating Boogers?",
+    "videoUrl": "https://www.youtube.com/watch?v=33",
+    "category": "Booger removal"
+  },
+  {
+    "id": "34",
+    "title": "Nose Cleaning | Find Your Optimal Position",
+    "description": "Find Your Optimal Position",
+    "videoUrl": "https://www.youtube.com/watch?v=34",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "35",
+    "title": "Booger removal | Dry Air, Allergies & Medications",
+    "description": "Dry Air, Allergies & Medications",
+    "videoUrl": "https://www.youtube.com/watch?v=35",
+    "category": "Booger removal"
+  },
+  {
+    "id": "36",
+    "title": "Booger removal | Removing a scablike booger",
+    "description": "Removing a scablike booger",
+    "videoUrl": "https://www.youtube.com/watch?v=36",
+    "category": "Booger removal"
+  },
+  {
+    "id": "37",
+    "title": "Booger removal | Causes of boogers",
+    "description": "Causes of boogers",
+    "videoUrl": "https://www.youtube.com/watch?v=37",
+    "category": "Booger removal"
+  },
+  {
+    "id": "38",
+    "title": "Booger removal | What Is The Outlook For Eating Boogers?",
+    "description": "What Is The Outlook For Eating Boogers?",
+    "videoUrl": "https://www.youtube.com/watch?v=38",
+    "category": "Booger removal"
+  },
+  {
+    "id": "39",
+    "title": "Booger removal | How To Prevent Hard, Dry Boogers ?",
+    "description": "How To Prevent Hard, Dry Boogers ?",
+    "videoUrl": "https://www.youtube.com/watch?v=39",
+    "category": "Booger removal"
+  },
+  {
+    "id": "40",
+    "title": "Nose Cleaning | Try an Antihistamine",
+    "description": "Try an Antihistamine",
+    "videoUrl": "https://www.youtube.com/watch?v=40",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "41",
+    "title": "Booger removal | How To Stop Eating Boogers ?",
+    "description": "How To Stop Eating Boogers ?",
+    "videoUrl": "https://www.youtube.com/watch?v=41",
+    "category": "Booger removal"
+  },
+  {
+    "id": "42",
+    "title": "Booger removal | Are There Any Benefits To Eating Boogers?",
+    "description": "Are There Any Benefits To Eating Boogers?",
+    "videoUrl": "https://www.youtube.com/watch?v=42",
+    "category": "Booger removal"
+  },
+  {
+    "id": "43",
+    "title": "Nose Cleaning | Consider an Oral Decongestant",
+    "description": "Consider an Oral Decongestant",
+    "videoUrl": "https://www.youtube.com/watch?v=43",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "44",
+    "title": "Nose Cleaning | Try a Nasal Sprayá",
+    "description": "Try a Nasal Sprayá",
+    "videoUrl": "https://www.youtube.com/watch?v=44",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "45",
+    "title": "Nose Cleaning | Inhale Steam",
+    "description": "Inhale Steam",
+    "videoUrl": "https://www.youtube.com/watch?v=45",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "46",
+    "title": "Nose Cleaning | Stay Hydrated",
+    "description": "Stay Hydrated",
+    "videoUrl": "https://www.youtube.com/watch?v=46",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "47",
+    "title": "Nose Cleaning | Rinse Your Sinuses",
+    "description": "Rinse Your Sinuses",
+    "videoUrl": "https://www.youtube.com/watch?v=47",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "48",
+    "title": "Booger removal | Real Booger Procedures You Must See 1",
+    "description": "Real Booger Procedures You Must See 1",
+    "videoUrl": "https://www.youtube.com/watch?v=48",
+    "category": "Booger removal"
+  },
+  {
+    "id": "49",
+    "title": "Nose Cleaning | Take a Shower",
+    "description": "Take a Shower",
+    "videoUrl": "https://www.youtube.com/watch?v=49",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "50",
+    "title": "Booger removal | This sinus infection is nasty",
+    "description": "This sinus infection is nasty",
+    "videoUrl": "https://www.youtube.com/watch?v=50",
+    "category": "Booger removal"
+  },
+  {
+    "id": "51",
+    "title": "Booger removal | Real Booger Procedures You Must See 3",
+    "description": "Real Booger Procedures You Must See 3",
+    "videoUrl": "https://www.youtube.com/watch?v=51",
+    "category": "Booger removal"
+  },
+  {
+    "id": "52",
+    "title": "Nose Cleaning | Turn on a Humidifier",
+    "description": "Turn on a Humidifier",
+    "videoUrl": "https://www.youtube.com/watch?v=52",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "53",
+    "title": "Nose Cleaning | Try Nasal Capsaicin",
+    "description": "Try Nasal Capsaicin",
+    "videoUrl": "https://www.youtube.com/watch?v=53",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "54",
+    "title": "Nose Cleaning | Smell Eucalyptus Essential Oil",
+    "description": "Smell Eucalyptus Essential Oil",
+    "videoUrl": "https://www.youtube.com/watch?v=54",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "55",
+    "title": "Nose Cleaning | Keep Your Bedroom Cool",
+    "description": "Keep Your Bedroom Cool",
+    "videoUrl": "https://www.youtube.com/watch?v=55",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "56",
+    "title": "Nose Cleaning | Give Acupressure a Try",
+    "description": "Give Acupressure a Try",
+    "videoUrl": "https://www.youtube.com/watch?v=56",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "57",
+    "title": "Booger removal | Real Booger Procedures You Must See 2",
+    "description": "Real Booger Procedures You Must See 2",
+    "videoUrl": "https://www.youtube.com/watch?v=57",
+    "category": "Booger removal"
+  },
+  {
+    "id": "58",
+    "title": "Nose Cleaning | Avoid Other Allergens",
+    "description": "Avoid Other Allergens",
+    "videoUrl": "https://www.youtube.com/watch?v=58",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "59",
+    "title": "Nose Cleaning | Sip a Warm Drink",
+    "description": "Sip a Warm Drink",
+    "videoUrl": "https://www.youtube.com/watch?v=59",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "60",
+    "title": "Booger removal | Real Booger Procedures You Must See 5",
+    "description": "Real Booger Procedures You Must See 5",
+    "videoUrl": "https://www.youtube.com/watch?v=60",
+    "category": "Booger removal"
+  },
+  {
+    "id": "61",
+    "title": "Nose Cleaning | Set Your Fan to Oscillate",
+    "description": "Set Your Fan to Oscillate",
+    "videoUrl": "https://www.youtube.com/watch?v=61",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "62",
+    "title": "Nose Cleaning | Wash Your Sheets",
+    "description": "Wash Your Sheets",
+    "videoUrl": "https://www.youtube.com/watch?v=62",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "63",
+    "title": "Nose Cleaning | Avoid Alcohol Before Bed",
+    "description": "Avoid Alcohol Before Bed",
+    "videoUrl": "https://www.youtube.com/watch?v=63",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "64",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 6",
+    "description": "Real ENT Procedures You Must See 6",
+    "videoUrl": "https://www.youtube.com/watch?v=64",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "65",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 1",
+    "description": "Real ENT Procedures You Must See 1",
+    "videoUrl": "https://www.youtube.com/watch?v=65",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "66",
+    "title": "Nose Cleaning | Stick On a Nasal Strip",
+    "description": "Stick On a Nasal Strip",
+    "videoUrl": "https://www.youtube.com/watch?v=66",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "67",
+    "title": "Nose Cleaning | Pop In an Intranasal Breathing Aid",
+    "description": "Pop In an Intranasal Breathing Aid",
+    "videoUrl": "https://www.youtube.com/watch?v=67",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "68",
+    "title": "Nose Cleaning | Consider a Ginger Supplement",
+    "description": "Consider a Ginger Supplement",
+    "videoUrl": "https://www.youtube.com/watch?v=68",
+    "category": "Nose Cleaning"
+  },
+  {
+    "id": "69",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 3",
+    "description": "Real ENT Procedures You Must See 3",
+    "videoUrl": "https://www.youtube.com/watch?v=69",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "70",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 4",
+    "description": "Real ENT Procedures You Must See 4",
+    "videoUrl": "https://www.youtube.com/watch?v=70",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "71",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 5",
+    "description": "Real ENT Procedures You Must See 5",
+    "videoUrl": "https://www.youtube.com/watch?v=71",
+    "category": "Tonsil stone removal"
+  },
+  {
+    "id": "72",
+    "title": "Booger removal | Real Booger Procedures You Must See 4",
+    "description": "Real Booger Procedures You Must See 4",
+    "videoUrl": "https://www.youtube.com/watch?v=72",
+    "category": "Booger removal"
+  },
+  {
+    "id": "73",
+    "title": "Tonsil stone removal | Real ENT Procedures You Must See 2",
+    "description": "Real ENT Procedures You Must See 2",
+    "videoUrl": "https://www.youtube.com/watch?v=73",
+    "category": "Tonsil stone removal"
+  }
 ]
