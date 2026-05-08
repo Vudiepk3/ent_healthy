@@ -1,14 +1,9 @@
 export type ENTVideo = {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  thumbnail: string;
   videoUrl: string;
-  category: "Ear" | "Nose" | "Throat" | "General";
-  symptom: string[];
-  publishDate: string;
-  views: string;
-  duration: string;
+  category: string;
 };
 
 export type ENTNews = {
