@@ -377,25 +377,58 @@
     }
 
     function navigate(tab) {
-      currentTab = tab;
-      document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(`section-${tab}`).classList.remove('hidden');
 
-      // Nav style
+      currentTab = tab;
+
+      // hide all sections
+      document.querySelectorAll('main > section')
+        .forEach(s => s.classList.add('hidden'));
+
+      // show current section
+      document.getElementById(`section-${tab}`)
+        .classList.remove('hidden');
+
+      // NAV ACTIVE
       document.querySelectorAll('nav button').forEach(b => {
-        b.classList.remove('text-[#2F80ED]', 'border-[#2F80ED]', 'border-b-2');
+        b.classList.remove(
+          'text-[#2F80ED]',
+          'border-[#2F80ED]',
+          'border-b-2'
+        );
+
         b.classList.add('text-gray-500');
       });
+
       const activeNav = document.getElementById(`nav-${tab}`);
+
       if (activeNav) {
-        activeNav.classList.add('text-[#2F80ED]', 'border-[#2F80ED]', 'border-b-2');
+        activeNav.classList.add(
+          'text-[#2F80ED]',
+          'border-[#2F80ED]',
+          'border-b-2'
+        );
+
         activeNav.classList.remove('text-gray-500');
       }
 
+      // HEADER SHOW/HIDE
+      const header = document.querySelector('header');
+
+      if (tab === 'detail' || tab === 'news-detail') {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+
+      // SAVED
       if (tab === 'saved') {
-        savedVideos = JSON.parse(localStorage.getItem('ent_saved') || '[]');
+        savedVideos = JSON.parse(
+          localStorage.getItem('ent_saved') || '[]'
+        );
+
         renderSaved();
       }
+
       lucide.createIcons();
     }
 
