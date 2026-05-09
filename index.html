@@ -142,25 +142,37 @@
           </a>
 
           <!-- Nav -->
-          <nav class="hidden md:flex items-center gap-8">
+          <nav class="
+  flex items-center
+  gap-4 md:gap-10
+  overflow-x-auto md:overflow-visible
+  whitespace-nowrap
+  px-1
+  no-scrollbar
+">
+
             <button onclick="navigate('videos')" id="nav-videos"
-              class="text-sm font-medium transition-all pb-1 border-b-2 border-[#2F80ED] text-[#2F80ED]">
+              class="shrink-0 px-2 py-1 text-sm font-medium transition-all pb-1 border-b-2 border-[#2F80ED] text-[#2F80ED]">
               ENT Videos
             </button>
+
             <button onclick="navigate('news')" id="nav-news"
-              class="text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED]">
+              class="shrink-0 px-2 py-1 text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED]">
               Medical News
             </button>
+
             <button onclick="navigate('saved')" id="nav-saved"
-              class="text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
+              class="shrink-0 px-2 py-1 text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
               <i data-lucide="heart" class="w-4 h-4"></i>
               Saved
             </button>
+
             <button onclick="navigate('products')" id="nav-products"
-              class="text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
+              class="shrink-0 px-2 py-1 text-sm font-medium transition-all pb-1 text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
               <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-              Recommended Products
+              Products
             </button>
+
           </nav>
 
           <!-- Actions -->
