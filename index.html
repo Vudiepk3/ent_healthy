@@ -522,62 +522,154 @@
       return `https://www.youtube-nocookie.com/embed/${videoId}`;
     }
     function viewDetail(id) {
+
       const video = videos.find(v => String(v.id) === String(id));
+
       if (!video) {
         console.error('Video not found:', id);
         return;
       }
-      const embedUrl = getEmbedUrl(video.videoUrl);
-      const container = document.getElementById('video-detail-content');
-      container.innerHTML = `
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div class="lg:col-span-2 space-y-6">
-                        <div class="video-box">
-                            <div class="video-wrapper" style="aspect-ratio: 16/9; width: 100%; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
-                                <iframe 
-                                    src="${embedUrl}"
-                                    title="${video.title}"
-                                    style="width: 100%; height: 100%; border: none;"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div style="text-align:center; margin-top:15px;">
-                                <a href="${video.videoUrl}" target="_blank" rel="noopener noreferrer" style="color:#fff; text-decoration:none; font-size:14px; opacity:0.9;">Không thể nhúng? Nhấn để xem trực tiếp YouTube</a>
-                            </div>
-                        </div>
 
-                        <h2 class="text-3xl font-bold">${video.title}</h2>
-                        <p class="text-gray-600 leading-relaxed text-lg">${video.description}</p>
-                        <div class="p-6 bg-[#F1F5F9] rounded-2xl border-l-4 border-[#2F80ED]">
-                            <h4 class="font-bold text-[#1F2D3D] mb-2 flex items-center gap-2">
-                                <i data-lucide="info" class="text-[#2F80ED]"></i> Important Note
-                            </h4>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">This content has been verified by ENT Health Hub for community education purposes.</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h3 class="font-bold text-lg">Related Videos</h3>
-                        <div class="space-y-4">
-                            ${videos.filter(v => String(v.id) !== String(id)).slice(0, 2).map(v => `
-                                <div class="bg-white p-3 rounded-2xl flex gap-4 cursor-pointer hover:bg-gray-50 transition-colors" onclick="viewDetail('${v.id}')">
-                                    <div class="w-24 aspect-video bg-gray-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
-                                        <i data-lucide="play-circle" class="w-8 h-8 text-gray-300"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="text-sm font-bold line-clamp-2">${v.title}</h5>
-                                        <span class="text-[10px] text-gray-400">${v.category}</span>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-      navigate('detail');
+      const embedUrl = getEmbedUrl(video.videoUrl);
+
+      const container = document.getElementById('video-detail-content');
+
+      container.innerHTML = `
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <!-- LEFT -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <div id="video-player-top" class="video-box">
+
+          <div class="video-wrapper"
+            style="aspect-ratio:16/9;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+
+            <iframe 
+              src="${embedUrl}"
+              title="${video.title}"
+              style="width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+          </div>
+
+          <div style="text-align:center;margin-top:15px;">
+
+            <a href="${video.videoUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style="color:#6b7280;text-decoration:none;font-size:14px;">
+
+              Can't embed? Watch directly on YouTube
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- TITLE -->
+        <div class="space-y-4">
+
+          <span class="px-3 py-1 bg-blue-50 text-[#2F80ED] text-[11px] font-bold uppercase rounded-full inline-block">
+            ${video.category}
+          </span>
+
+          <h2 class="text-3xl font-bold leading-tight">
+            ${video.title}
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed text-lg">
+            ${video.description}
+          </p>
+
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="p-6 bg-[#F1F5F9] rounded-2xl border-l-4 border-[#2F80ED]">
+
+          <h4 class="font-bold text-[#1F2D3D] mb-2 flex items-center gap-2">
+
+            <i data-lucide="info" class="text-[#2F80ED]"></i>
+
+            Important Note
+
+          </h4>
+
+          <p class="text-xs text-gray-400 uppercase tracking-wider">
+            This content has been verified by ENT Health Hub for community education purposes.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="space-y-6">
+
+        <h3 class="font-bold text-lg">
+          Related Videos
+        </h3>
+
+        <div class="space-y-4 max-h-[800px] overflow-y-auto pr-2">
+
+  ${videos
+          .filter(v => v.category === video.category)
+          .map(v => {
+
+            const active = String(v.id) === String(id);
+
+            return `
+
+        <div
+  class="
+    p-3 rounded-2xl cursor-pointer transition-all border
+    ${active
+                ? 'bg-blue-50 border-[#2F80ED]'
+                : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-[#2F80ED]/30'}
+  "
+  onclick="viewDetail('${v.id}')">
+
+  <span class="text-[10px] font-bold uppercase text-[#2F80ED]">
+    ${v.category}
+  </span>
+
+  <h5 class="text-sm font-bold line-clamp-2 mt-1">
+    ${v.title}
+  </h5>
+
+</div>
+
+      `;
+          }).join('')}
+
+</div>
+
+      </div>
+
+    </div>
+  `;
+
+      // chỉ navigate lần đầu
+      if (currentTab !== 'detail') {
+        navigate('detail');
+      }
+
+      // scroll player
+      setTimeout(() => {
+
+        document.getElementById('video-player-top')
+          ?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+
+      }, 100);
+
       lucide.createIcons();
     }
-
     function viewNewsDetail(id) {
       const newsItem = news.find(n => n.id === id);
       const container = document.getElementById('news-detail-content');
