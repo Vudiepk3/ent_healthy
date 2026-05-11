@@ -625,7 +625,6 @@ function renderProducts() {
     lucide.createIcons();
 }
 
-window.onload = init;
 window.navigate = navigate;
 window.viewDetail = viewDetail;
 window.viewNewsDetail = viewNewsDetail;
@@ -634,3 +633,5 @@ window.toggleSave = toggleSave;
 window.openDonateModal = openDonateModal;
 window.closeDonateModal = closeDonateModal;
 window.copyPayPal = copyPayPal;
+
+window.onload = init;
