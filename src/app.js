@@ -1,5 +1,11 @@
 // Data URLs
-const API_URLS = {
+const LOCAL_URLS = {
+    videos: 'src/data/videos.json',
+    news: 'src/data/news.json',
+    products: 'src/data/products.json'
+};
+
+const REMOTE_URLS = {
     videos: 'https://raw.githubusercontent.com/Vudiepk3/Test_MockAPI/main/data/json/videos.json',
     news: 'https://raw.githubusercontent.com/Vudiepk3/Test_MockAPI/main/data/json/news.json',
     products: 'https://raw.githubusercontent.com/Vudiepk3/Test_MockAPI/main/data/json/products.json'
@@ -18,44 +24,29 @@ let searchQuery = '';
 let savedVideos = JSON.parse(localStorage.getItem('ent_saved') || '[]');
 
 // Functions
+async function fetchJson(url) {
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`${url} returned ${res.status}`);
+    }
+    return res.json();
+}
+
 async function loadData() {
     try {
-        console.log('Starting to fetch data from URLs:', API_URLS);
-
-        const [videosRes, newsRes, productsRes] = await Promise.all([
-            fetch(API_URLS.videos),
-            fetch(API_URLS.news),
-            fetch(API_URLS.products)
-        ]);
-
-        console.log('Fetch responses received:', {
-            videos: videosRes.status,
-            news: newsRes.status,
-            products: productsRes.status
-        });
-
-        if (!videosRes.ok || !newsRes.ok || !productsRes.ok) {
-            throw new Error(`Failed to fetch data - Videos: ${videosRes.status}, News: ${newsRes.status}, Products: ${productsRes.status}`);
+        // Attempt local data first, then fallback to remote if needed.
+        try {
+            videos = await fetchJson(LOCAL_URLS.videos);
+            news = await fetchJson(LOCAL_URLS.news);
+            products = await fetchJson(LOCAL_URLS.products);
+            console.log('Loaded local JSON data.');
+        } catch (localError) {
+            console.warn('Local JSON data failed, falling back to remote:', localError.message);
+            videos = await fetchJson(REMOTE_URLS.videos);
+            news = await fetchJson(REMOTE_URLS.news);
+            products = await fetchJson(REMOTE_URLS.products);
+            console.log('Loaded remote JSON data.');
         }
-
-        const videosText = await videosRes.text();
-        const newsText = await newsRes.text();
-        const productsText = await productsRes.text();
-
-        console.log('Raw response texts:', {
-            videos: videosText.substring(0, 100),
-            news: newsText.substring(0, 100),
-            products: productsText.substring(0, 100)
-        });
-
-        videos = JSON.parse(videosText);
-        news = JSON.parse(newsText);
-        products = JSON.parse(productsText);
-
-        // Debug: log the data structure
-        console.log('Videos data:', videos);
-        console.log('News data:', news);
-        console.log('Products data:', products);
 
         // Handle if data is wrapped in an object
         if (videos && typeof videos === 'object' && !Array.isArray(videos)) {
@@ -68,19 +59,15 @@ async function loadData() {
             products = products.data || products.products || Object.values(products);
         }
 
-        console.log('Processed Videos:', videos);
-        console.log('Processed News:', news);
-        console.log('Videos array length:', videos.length);
-        console.log('News array length:', news.length);
+        console.log('Videos length:', videos.length);
+        console.log('News length:', news.length);
 
-        // Re-render after data loads
         renderCategories();
         renderVideos();
         renderNews();
         renderProducts();
     } catch (error) {
         console.error('Error loading data:', error);
-        console.error('Error stack:', error.stack);
         alert('Failed to load data. Check console for details. Error: ' + error.message);
     }
 }
@@ -152,13 +139,47 @@ function navigate(tab) {
 }
 
 function renderCategories() {
-    const cats = ['All', 'Booger removal', 'Tonsil stone removal', 'Nose Cleaning'];
+
+    const categories = [
+        ...new Set(
+            videos
+                .map(v => (v.category || '').toString().trim())
+                .filter(cat => cat.length > 0)
+        )
+    ];
+
+    const cats = ['All', ...categories];
+
     const container = document.getElementById('category-filters');
-    container.innerHTML = cats.map(cat => `
-                <button onclick="setCategory('${cat}')" class="px-4 py-2 rounded-full text-sm font-medium transition-all ${filterCategory === cat ? 'bg-[#2F80ED] text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-[#2F80ED]'}">
-                    ${cat}
-                </button>
-            `).join('');
+
+    if (!container) return;
+
+    container.innerHTML = cats.map(cat => {
+
+        const active =
+            filterCategory.toLowerCase().trim() ===
+            cat.toLowerCase().trim();
+
+        return `
+            <button
+                onclick='setCategory(${JSON.stringify(cat)})'
+                class="
+                    px-4 py-2 rounded-full text-sm font-medium transition-all
+                    ${active
+                ? 'bg-[#2F80ED] text-white'
+                : 'bg-white border border-gray-200 text-gray-600 hover:border-[#2F80ED]'
+            }
+                ">
+
+                ${cat}
+
+            </button>
+        `;
+    }).join('');
+
+    requestAnimationFrame(() => {
+        lucide.createIcons();
+    });
 }
 
 function setCategory(cat) {
@@ -168,20 +189,57 @@ function setCategory(cat) {
 }
 
 function renderVideos() {
+
+    const grid = document.getElementById('video-grid');
+
+    if (!grid) return;
+
     const filtered = videos.filter(v => {
-        const matchCat = filterCategory === 'All' || v.category === filterCategory;
-        const matchSearch = v.title.toLowerCase().includes(searchQuery) ||
-            v.description.toLowerCase().includes(searchQuery);
+
+        const videoCategory = (v.category || '')
+            .toString()
+            .trim()
+            .toLowerCase();
+
+        const currentCategory = (filterCategory || '')
+            .toString()
+            .trim()
+            .toLowerCase();
+
+        const matchCat =
+            currentCategory === 'all' ||
+            videoCategory === currentCategory;
+
+        const title = (v.title || '').toLowerCase();
+        const description = (v.description || '').toLowerCase();
+
+        const matchSearch =
+            title.includes(searchQuery) ||
+            description.includes(searchQuery);
+
         return matchCat && matchSearch;
     });
 
-    console.log('Total videos:', videos.length);
-    console.log('Filtered videos:', filtered.length);
-    console.log('Current category:', filterCategory);
+    console.log('FILTER RESULT:', filtered.length);
 
-    const grid = document.getElementById('video-grid');
-    grid.innerHTML = filtered.map(v => createVideoCard(v)).join('');
-    lucide.createIcons();
+    if (filtered.length === 0) {
+
+        grid.innerHTML = `
+            <div class="col-span-full text-center py-20 text-gray-400">
+                No videos found.
+            </div>
+        `;
+
+        return;
+    }
+
+    grid.innerHTML = filtered
+        .map(v => createVideoCard(v))
+        .join('');
+
+    requestAnimationFrame(() => {
+        lucide.createIcons();
+    });
 }
 
 function createVideoCard(v) {
@@ -305,11 +363,11 @@ function viewDetail(id) {
 
     if (!video) {
         console.error('Video not found:', id);
-        console.log('Available video IDs:', videos.map(v => v.id));
         return;
     }
 
     const embedUrl = getEmbedUrl(video.videoUrl);
+
 
     const container = document.getElementById('video-detail-content');
 
@@ -568,3 +626,11 @@ function renderProducts() {
 }
 
 window.onload = init;
+window.navigate = navigate;
+window.viewDetail = viewDetail;
+window.viewNewsDetail = viewNewsDetail;
+window.setCategory = setCategory;
+window.toggleSave = toggleSave;
+window.openDonateModal = openDonateModal;
+window.closeDonateModal = closeDonateModal;
+window.copyPayPal = copyPayPal;
