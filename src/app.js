@@ -257,7 +257,7 @@ function createVideoCard(v) {
 
                 <h3 class="font-bold text-lg leading-tight line-clamp-2 group-hover:text-[#2F80ED] transition-colors cursor-pointer"
                     onclick="viewDetail('${v.id}')">
-                    ${v.title || 'No Title'}
+                    ${v.id}. ${v.title || 'No Title'}
                 </h3>
 
                 <p class="text-sm text-gray-500 line-clamp-2">
@@ -359,6 +359,9 @@ function getEmbedUrl(url) {
 
 function viewDetail(id) {
 
+    // Change URL without reload
+    history.pushState({}, '', `/video/${id}`);
+
     const video = videos.find(v => String(v.id) === String(id));
 
     if (!video) {
@@ -367,7 +370,6 @@ function viewDetail(id) {
     }
 
     const embedUrl = getEmbedUrl(video.videoUrl);
-
 
     const container = document.getElementById('video-detail-content');
 
@@ -407,6 +409,16 @@ function viewDetail(id) {
 
         </div>
 
+        <!-- ADS SLOT -->
+        <div class="my-6">
+          <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-6213581630049772"
+              data-ad-slot="YOUR_SLOT_ID"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+        </div>
+
         <!-- TITLE -->
         <div class="space-y-4">
 
@@ -415,28 +427,11 @@ function viewDetail(id) {
           </span>
 
           <h2 class="text-3xl font-bold leading-tight">
-            ${video.title}
+            ${video.id}. ${video.title}
           </h2>
 
           <p class="text-gray-600 leading-relaxed text-lg">
             ${video.description}
-          </p>
-
-        </div>
-
-        <!-- INFO BOX -->
-        <div class="p-6 bg-[#F1F5F9] rounded-2xl border-l-4 border-[#2F80ED]">
-
-          <h4 class="font-bold text-[#1F2D3D] mb-2 flex items-center gap-2">
-
-            <i data-lucide="info" class="text-[#2F80ED]"></i>
-
-            Important Note
-
-          </h4>
-
-          <p class="text-xs text-gray-400 uppercase tracking-wider">
-            This content has been verified by ENT Health Hub for community education purposes.
           </p>
 
         </div>
@@ -452,7 +447,7 @@ function viewDetail(id) {
 
         <div class="space-y-4 max-h-[800px] overflow-y-auto pr-2">
 
-  ${videos
+          ${videos
             .filter(v => v.category === video.category)
             .map(v => {
 
@@ -460,39 +455,40 @@ function viewDetail(id) {
 
                 return `
 
-        <div
-  class="
-    p-3 rounded-2xl cursor-pointer transition-all border
-    ${active
+                <div
+                  class="
+                    p-3 rounded-2xl cursor-pointer transition-all border
+                    ${active
                         ? 'bg-blue-50 border-[#2F80ED]'
                         : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-[#2F80ED]/30'}
-  "
-  onclick="viewDetail('${v.id}')">
+                  "
+                  onclick="viewDetail('${v.id}')">
 
-  <span class="text-[10px] font-bold uppercase text-[#2F80ED]">
-    ${v.category}
-  </span>
+                  <span class="text-[10px] font-bold uppercase text-[#2F80ED]">
+                    ${v.category}
+                  </span>
 
-  <h5 class="text-sm font-bold line-clamp-2 mt-1">
-    ${v.title}
-  </h5>
+                  <h5 class="text-sm font-bold line-clamp-2 mt-1">
+                    ${v.title}
+                  </h5>
 
-</div>
+                </div>
 
-      `;
+              `;
             }).join('')}
 
-</div>
+        </div>
 
       </div>
 
     </div>
-  `;
+    `;
 
     if (currentTab !== 'detail') {
         navigate('detail');
     }
 
+    // Scroll top
     setTimeout(() => {
         document.getElementById('video-player-top')
             ?.scrollIntoView({
@@ -501,66 +497,88 @@ function viewDetail(id) {
             });
     }, 100);
 
+    // Reload Adsense
+    setTimeout(() => {
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            console.log('Ads reloaded');
+        } catch (e) {
+            console.log('Adsense reload error:', e);
+        }
+    }, 500);
+
     lucide.createIcons();
 }
 
 function viewNewsDetail(id) {
+
+    history.pushState({}, '', `/news/${id}`);
+
     const newsItem = news.find(n => String(n.id) === String(id));
 
     if (!newsItem) {
         console.error('News item not found:', id);
-        console.log('Available news IDs:', news.map(n => n.id));
         return;
     }
 
     const container = document.getElementById('news-detail-content');
+
     container.innerHTML = `
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div class="lg:col-span-2 space-y-6">
-                        <div class="w-full rounded-3xl overflow-hidden shadow-xl">
-                            <img src="${newsItem.image}" class="w-full h-auto">
-                        </div>
-                        <div>
-                            <span class="px-3 py-1 bg-green-50 text-[#27AE60] text-[10px] font-bold uppercase rounded tracking-wide inline-block mb-4">${newsItem.category}</span>
-                            <h2 class="text-3xl font-bold mb-2">${newsItem.title}</h2>
-                            <p class="text-sm text-gray-400">${newsItem.publishDate}</p>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-    ${newsItem.description.replace(/\n/g, '<br><br>')}
-</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-${newsItem.content
-            ? `
-    <div class="text-gray-600 leading-relaxed">
-        ${newsItem.content}
-    </div>
-`
-            : ''
-        }
-                        <div class="p-6 bg-[#F1F5F9] rounded-2xl border-l-4 border-[#27AE60]">
-                            <h4 class="font-bold text-[#1F2D3D] mb-2 flex items-center gap-2">
-                                <i data-lucide="info" class="text-[#27AE60]"></i> Medical Information
-                            </h4>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">This news has been reviewed by ENT Health Hub for accuracy and relevance.</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h3 class="font-bold text-lg">More News</h3>
-                        <div class="space-y-4">
-                            ${news.filter(n => n.id !== id).slice(0, 7).map(n => `
-                                <div class="bg-white p-4 rounded-2xl cursor-pointer hover:bg-gray-50 transition-colors border border-gray-50" onclick="viewNewsDetail('${n.id}')">
-                                    <p class="text-[10px] font-bold text-[#27AE60] uppercase mb-2">${n.category}</p>
-                                    <h5 class="text-sm font-bold line-clamp-2 mb-2">${n.title}</h5>
-                                    <p class="text-[10px] text-gray-400">${n.publishDate}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+            <div class="lg:col-span-2 space-y-6">
+
+                <div class="w-full rounded-3xl overflow-hidden shadow-xl">
+                    <img src="${newsItem.image}" class="w-full h-auto">
                 </div>
-            `;
-    navigate('news-detail');
-}
 
+                <!-- ADS -->
+                <div class="my-6">
+                  <ins class="adsbygoogle"
+                      style="display:block"
+                      data-ad-client="ca-pub-6213581630049772"
+                      data-ad-slot="YOUR_SLOT_ID"
+                      data-ad-format="auto"
+                      data-full-width-responsive="true"></ins>
+                </div>
+
+                <div>
+                    <span class="px-3 py-1 bg-green-50 text-[#27AE60] text-[10px] font-bold uppercase rounded tracking-wide inline-block mb-4">
+                        ${newsItem.category}
+                    </span>
+
+                    <h2 class="text-3xl font-bold mb-2">
+                        ${newsItem.title}
+                    </h2>
+
+                    <p class="text-sm text-gray-400">
+                        ${newsItem.publishDate}
+                    </p>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    ${newsItem.description.replace(/\n/g, '<br><br>')}
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+    navigate('news-detail');
+
+    // Reload Adsense
+    setTimeout(() => {
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            console.log('Ads reloaded');
+        } catch (e) {
+            console.log('Adsense reload error:', e);
+        }
+    }, 500);
+
+    lucide.createIcons();
+}
 function openDonateModal() {
     document.getElementById('donate-modal').classList.add('active');
     lucide.createIcons();
