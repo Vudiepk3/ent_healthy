@@ -1,4 +1,4 @@
-import { HOME_TABS } from './site-config.js';
+import { HOME_TABS } from '../config/site.js';
 
 export function generateSlug(title) {
     const slug = String(title || '')

@@ -1,5 +1,5 @@
-import { HOME_DESCRIPTION, SITE_NAME } from './site-config.js';
-import { getEmbedUrl, truncateText } from './site-utils.js';
+import { HOME_DESCRIPTION, SITE_NAME } from '../config/site.js';
+import { getEmbedUrl, truncateText } from '../utils/site.js';
 
 export function updateHomeSeo(tab = 'videos') {
     const seoByTab = {

@@ -1,5 +1,5 @@
-import { DEFAULT_IMAGE, HOME_TABS, PAYPAL_ACCOUNT } from './site-config.js';
-import { loadSiteData } from './site-data.js';
+import { DEFAULT_IMAGE, HOME_TABS, PAYPAL_ACCOUNT } from './config/site.js';
+import { loadSiteData } from './services/data.js';
 import {
     renderCategories,
     renderNews,
@@ -9,8 +9,8 @@ import {
     renderSaved,
     renderVideoDetail,
     renderVideos
-} from './site-render.js';
-import { updateArticleSeo, updateHomeSeo } from './site-seo.js';
+} from './renderers/site.js';
+import { updateArticleSeo, updateHomeSeo } from './services/seo.js';
 import {
     createLucideIcons,
     generateSlug,
@@ -20,7 +20,7 @@ import {
     getNewsPath,
     getPageType,
     getVideoPath
-} from './site-utils.js';
+} from './utils/site.js';
 
 const state = {
     videos: [],

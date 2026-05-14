@@ -1,5 +1,5 @@
-import { DETAIL_AD_CLIENT, DETAIL_AD_SLOT, SITE_NAME } from './site-config.js';
-import { updateSeo } from './site-seo.js';
+import { DETAIL_AD_CLIENT, DETAIL_AD_SLOT, SITE_NAME } from '../config/site.js';
+import { updateSeo } from '../services/seo.js';
 import {
     createLucideIcons,
     escapeAttr,
@@ -10,7 +10,7 @@ import {
     getVideoPath,
     inlineString,
     renderArticleText
-} from './site-utils.js';
+} from '../utils/site.js';
 
 export function renderCategories({ videos, filterCategory }) {
     const container = document.getElementById('category-filters');
@@ -240,7 +240,7 @@ export function renderVideoDetail(video, videos) {
                     <div class="video-wrapper" style="aspect-ratio:16/9;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
                         <iframe
                             src="${escapeAttr(getEmbedUrl(video.videoUrl))}"
-                            title="${escapeAttr(video.title || 'ENT video')}"
+                            title="${escapeAttr(video.id + '. ' + video.title || 'ENT video')}"
                             style="width:100%;height:100%;border:none;"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
@@ -275,9 +275,6 @@ export function renderVideoDetail(video, videos) {
                         ${escapeHtml(video.description || 'No description')}
                     </p>
 
-                    <div class="prose-content space-y-4">
-                        ${renderArticleText(video.content || video.article || video.description)}
-                    </div>
                 </article>
             </div>
 
@@ -304,7 +301,7 @@ function createRelatedVideoLink(video) {
                 ${escapeHtml(video.category || 'ENT Video')}
             </span>
             <h5 class="text-sm font-bold line-clamp-2 mt-1">
-                ${escapeHtml(video.title || 'No Title')}
+                ${escapeHtml(video.id + '. ' + video.title || 'No Title')}
             </h5>
         </a>
     `;

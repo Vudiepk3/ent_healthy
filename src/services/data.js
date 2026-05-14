@@ -1,4 +1,4 @@
-import { LOCAL_URLS, REMOTE_URLS } from './site-config.js';
+import { LOCAL_URLS, REMOTE_URLS } from '../config/site.js';
 
 export async function fetchJson(url) {
     const response = await fetch(url);
