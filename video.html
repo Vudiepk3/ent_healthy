@@ -26,49 +26,6 @@
 
 <body data-page="video-detail" class="bg-[#F9FBFD] text-[#1F2D3D] transition-colors duration-300">
 
-  <!-- Donate Modal -->
-  <div id="donate-modal" class="modal-overlay" onclick="if(event.target === this) closeDonateModal()">
-    <div class="modal-content">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold text-[#1F2D3D]">Support ENT Health Hub</h3>
-        <button onclick="closeDonateModal()" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-          <i data-lucide="x" class="w-6 h-6 text-gray-500"></i>
-        </button>
-      </div>
-
-      <div class="space-y-4 mb-6">
-        <p class="text-gray-600 leading-relaxed">Thank you for your interest! Your support helps us continue to provide
-          high-quality medical materials to serve the community.</p>
-
-        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
-          <p class="text-sm font-semibold text-[#2F80ED] mb-2">PayPal Account:</p>
-          <div class="flex items-center justify-between bg-white p-3 rounded-lg border border-blue-100">
-            <code class="text-sm font-mono text-gray-700" id="paypal-account">Loading...</code>
-            <button onclick="copyPayPal()" class="text-[#2F80ED] hover:text-[#2F80ED]/80 transition-colors">
-              <i data-lucide="copy" class="w-5 h-5"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-green-50 p-4 rounded-xl border border-green-200">
-          <p class="text-sm font-semibold text-[#27AE60] mb-2">Thank you for your support:</p>
-          <p class="text-sm text-gray-600">Every contribution from you is valuable and helps us continue developing this
-            project.</p>
-        </div>
-      </div>
-
-      <div class="flex gap-3">
-        <button onclick="closeDonateModal()"
-          class="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
-          Close
-        </button>
-        <a href="https://www.paypal.com/paypalme/hicau" target="_blank" id="paypal-link"
-          class="flex-1 px-4 py-2 bg-gradient-to-r from-[#0070BA] to-[#003087] text-white rounded-lg font-medium hover:shadow-lg transition-shadow text-center">
-          Donate Now
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- App Container -->
   <div id="app" class="min-h-screen flex flex-col">
@@ -97,61 +54,10 @@
 
             </a>
 
-            <button onclick="openDonateModal()"
-              class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FF6B6B] to-[#FF8E8E] text-white rounded-full font-medium text-sm hover:shadow-lg transition-shadow w-full sm:w-auto">
 
-              <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
-
-              <span>Support me</span>
-
-            </button>
 
           </div>
 
-          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-
-            <nav class="flex items-center gap-4 md:gap-8 overflow-x-auto whitespace-nowrap no-scrollbar w-full">
-
-              <button onclick="navigate('videos')" id="nav-videos"
-                class="shrink-0 px-2 py-1 text-sm font-medium transition-all border-b-2 border-[#2F80ED] text-[#2F80ED]">
-                ENT Videos
-              </button>
-
-              <button onclick="navigate('news')" id="nav-news"
-                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED]">
-                Medical News
-              </button>
-
-              <button onclick="navigate('saved')" id="nav-saved"
-                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
-
-                <i data-lucide="heart" class="w-4 h-4"></i>
-
-                Saved
-
-              </button>
-
-              <button onclick="navigate('products')" id="nav-products"
-                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
-
-                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-
-                Products
-
-              </button>
-
-            </nav>
-
-            <div class="relative w-full lg:w-auto">
-
-              <input type="text" id="global-search" placeholder="Search videos..."
-                class="w-full lg:w-64 bg-[#F1F5F9] border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-[#2F80ED] outline-none transition-all">
-
-              <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
-
-            </div>
-
-          </div>
 
         </div>
 
