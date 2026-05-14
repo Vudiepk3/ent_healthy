@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Medigrade Sinus Rinse Kit",
+    "category": "Recommended Nasal Rinse Kits",
+    "description": "Effective sinus rinse kit for nasal care",
+    "url": "https://amzn.to/4lkiARD"
+  },
+  {
+    "id": 2,
+    "name": "Medigrade Sinus Rinse Sachets",
+    "category": "Recommended Nasal Rinse Kits",
+    "description": "Convenient sachets for sinus rinse",
+    "url": "https://amzn.to/4bGzjuj"
+  },
+  {
+    "id": 3,
+    "name": "Anzorhal Sinus Rinse Kit",
+    "category": "Recommended Nasal Rinse Kits",
+    "description": "Professional-grade sinus rinse kit (used in our videos)",
+    "url": "https://amzn.to/4bojBDX"
+  },
+  {
+    "id": 4,
+    "name": "NeilMed Sinus Rinse Kit",
+    "category": "Other Good Options",
+    "description": "Popular and trusted sinus rinse solution",
+    "url": "https://amzn.to/4bBOLZB"
+  },
+  {
+    "id": 5,
+    "name": "Maoever Sinus Rinse Kit",
+    "category": "Other Good Options",
+    "description": "Affordable sinus rinse kit option",
+    "url": "https://amzn.to/4bqSh7O"
+  },
+  {
+    "id": 6,
+    "name": "Cepacol Extra Strength Sore Throat Lozenges",
+    "category": "Other Good Options",
+    "description": "Relief for sore throat",
+    "url": "https://amzn.to/4svOmO6"
+  },
+  {
+    "id": 7,
+    "name": "Betadine Sore Throat Gargle",
+    "category": "Other Good Options",
+    "description": "Antiseptic gargle for throat care",
+    "url": "https://amzn.to/4rHDbkm"
+  }
+]
