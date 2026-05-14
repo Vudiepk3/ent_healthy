@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/video/:slug",
+      "destination": "/video.html"
+    },
+    {
+      "source": "/news/:slug",
+      "destination": "/news.html"
+    }
+  ]
+}
