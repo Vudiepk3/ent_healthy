@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENT Health Hub - Medical Education Center</title>
+  <meta name="description"
+    content="ENT Health Hub provides educational ENT videos, medical news, and recommended care products.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ENT Health Hub - Medical Education Center">
+  <meta property="og:description"
+    content="ENT Health Hub provides educational ENT videos, medical news, and recommended care products.">
+  <meta property="og:url" content="/">
+  <meta property="og:site_name" content="ENT Health Hub">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ENT Health Hub - Medical Education Center">
+  <meta name="twitter:description"
+    content="ENT Health Hub provides educational ENT videos, medical news, and recommended care products.">
+  <!-- Tailwind CSS 4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6213581630304972"
+    crossorigin="anonymous"></script>
+  <script type="module" crossorigin src="/assets/app-CNggByoL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/app-DkvSa-Ve.css">
+</head>
+
+<body data-page="home" class="bg-[#F9FBFD] text-[#1F2D3D] transition-colors duration-300">
+
+  <!-- Donate Modal -->
+  <div id="donate-modal" class="modal-overlay" onclick="if(event.target === this) closeDonateModal()">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-[#1F2D3D]">Support ENT Health Hub</h3>
+        <button onclick="closeDonateModal()" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+          <i data-lucide="x" class="w-6 h-6 text-gray-500"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 mb-6">
+        <p class="text-gray-600 leading-relaxed">Thank you for your interest! Your support helps us continue to provide
+          high-quality medical materials to serve the community.</p>
+
+        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+          <p class="text-sm font-semibold text-[#2F80ED] mb-2">💳 PayPal Account:</p>
+          <div class="flex items-center justify-between bg-white p-3 rounded-lg border border-blue-100">
+            <code class="text-sm font-mono text-gray-700" id="paypal-account">Loading...</code>
+            <button onclick="copyPayPal()" class="text-[#2F80ED] hover:text-[#2F80ED]/80 transition-colors">
+              <i data-lucide="copy" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-green-50 p-4 rounded-xl border border-green-200">
+          <p class="text-sm font-semibold text-[#27AE60] mb-2">✨ Thank you for your support:</p>
+          <p class="text-sm text-gray-600">Every contribution from you is valuable and helps us continue developing this
+            project.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeDonateModal()"
+          class="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+          Close
+        </button>
+        <a href="https://www.paypal.com/paypalme/hicau" target="_blank" id="paypal-link"
+          class="flex-1 px-4 py-2 bg-gradient-to-r from-[#0070BA] to-[#003087] text-white rounded-lg font-medium hover:shadow-lg transition-shadow text-center">
+          Donate Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Container -->
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+
+        <!-- Mobile + Desktop Layout -->
+        <div class="flex flex-col gap-4">
+
+          <!-- Top -->
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+
+            <!-- Logo -->
+            <a href="/" onclick="event.preventDefault(); goHome('videos')" class="flex items-center gap-2 group w-fit">
+
+              <div
+                class="w-10 h-10 bg-[#2F80ED] rounded-xl flex items-center justify-center text-white shadow-lg group-hover:rotate-6 transition-transform shrink-0">
+
+                <i data-lucide="shield-check"></i>
+
+              </div>
+
+              <span class="text-lg sm:text-xl font-bold tracking-tight uppercase whitespace-nowrap">
+                ENT<span class="text-[#2F80ED]">Health</span>Hub
+              </span>
+
+            </a>
+
+            <!-- Donate -->
+            <button onclick="openDonateModal()"
+              class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FF6B6B] to-[#FF8E8E] text-white rounded-full font-medium text-sm hover:shadow-lg transition-shadow w-full sm:w-auto">
+
+              <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
+
+              <span>Support me</span>
+
+            </button>
+
+          </div>
+
+          <!-- Bottom -->
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+
+            <!-- Nav -->
+            <nav class="
+          flex items-center
+          gap-4 md:gap-8
+          overflow-x-auto
+          whitespace-nowrap
+          no-scrollbar
+          w-full
+        ">
+
+              <button onclick="navigate('videos')" id="nav-videos"
+                class="shrink-0 px-2 py-1 text-sm font-medium transition-all border-b-2 border-[#2F80ED] text-[#2F80ED]">
+                ENT Videos
+              </button>
+
+              <button onclick="navigate('news')" id="nav-news"
+                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED]">
+                Medical News
+              </button>
+
+              <button onclick="navigate('saved')" id="nav-saved"
+                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
+
+                <i data-lucide="heart" class="w-4 h-4"></i>
+
+                Saved
+
+              </button>
+
+              <button onclick="navigate('products')" id="nav-products"
+                class="shrink-0 px-2 py-1 text-sm font-medium transition-all text-gray-500 hover:text-[#2F80ED] flex items-center gap-1">
+
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+
+                Products
+
+              </button>
+
+            </nav>
+
+            <!-- Search -->
+            <div class="relative w-full lg:w-auto">
+
+              <input type="text" id="global-search" placeholder="Search videos..."
+                class="w-full lg:w-64 bg-[#F1F5F9] border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-[#2F80ED] outline-none transition-all">
+
+              <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
+
+      <!-- Video Section -->
+      <section id="section-videos" class="space-y-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h1 class="text-4xl font-bold text-[#1F2D3D] mb-4">ENT Knowledge <span class="text-[#2F80ED]">Videos</span>
+          </h1>
+          <p class="text-gray-500">In-depth educational videos from medical experts to help you understand ENT
+            conditions.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex flex-wrap items-center gap-2" id="category-filters">
+            <!-- Categories dynamic -->
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        </div>
+      </section>
+
+      <!-- News Section -->
+      <section id="section-news" class="hidden space-y-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h1 class="text-4xl font-bold text-[#1F2D3D] mb-4">Medical <span class="text-[#27AE60]">News</span></h1>
+          <p class="text-gray-500">Stay updated with the latest medical breakthroughs and research in ENT.</p>
+        </div>
+        <div id="news-container" class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+          <!-- News cards dynamic -->
+        </div>
+      </section>
+
+      <!-- Saved Section -->
+      <section id="section-saved" class="hidden space-y-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h1 class="text-4xl font-bold text-[#1F2D3D] mb-4">Saved <span class="text-[#2F80ED]">Videos</span></h1>
+          <p class="text-gray-500">Review the educational videos you've bookmarked.</p>
+        </div>
+        <div id="saved-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Saved cards dynamic -->
+        </div>
+      </section>
+
+      <!-- Video Detail Section -->
+      <section id="section-detail" class="hidden space-y-8">
+        <button onclick="goHome('videos')"
+          class="flex items-center gap-2 text-gray-500 hover:text-[#2F80ED] font-bold uppercase text-xs">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to List
+        </button>
+        <div id="video-detail-content">
+          <!-- Detail core dynamic -->
+        </div>
+      </section>
+
+      <!-- News Detail Section -->
+      <section id="section-news-detail" class="hidden space-y-8">
+        <button onclick="goHome('news')"
+          class="flex items-center gap-2 text-gray-500 hover:text-[#2F80ED] font-bold uppercase text-xs">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to News
+        </button>
+        <div id="news-detail-content">
+          <!-- News detail dynamic -->
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="section-products" class="hidden space-y-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h1 class="text-4xl font-bold text-[#1F2D3D] mb-4">Recommended <span class="text-[#FF6B6B]">Products</span>
+          </h1>
+          <p class="text-gray-500">Quality medical products recommended by our experts for ENT care.</p>
+        </div>
+        <div id="products-container" class="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+          <!-- Products dynamic -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 px-8 py-6 mt-12">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-400 font-medium gap-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="alert-triangle" class="w-4 h-4 text-yellow-500"></i>
+          <p>DISCLAIMER: This content is for educational purposes only and does not replace professional medical advice,
+            diagnosis, or treatment.</p>
+        </div>
+        <div class="flex gap-6">
+          <span>&copy; 2026 ENT Health Hub</span>
+          <a href="#" class="hover:text-[#2F80ED]">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</body>
+
+</html>
