@@ -17,6 +17,8 @@ function copyLocalJsonData() {
 }
 
 export default defineConfig({
+  base: '/',
+
   build: {
     rollupOptions: {
       input: {
@@ -26,5 +28,6 @@ export default defineConfig({
       }
     }
   },
+
   plugins: [copyLocalJsonData()]
 });

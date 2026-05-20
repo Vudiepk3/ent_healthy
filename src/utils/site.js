@@ -105,8 +105,11 @@ export function getRelatedItems(items, currentItem) {
         item.category === currentItem.category
     );
 
-    const fallback = items.filter(item => String(item.id) !== String(currentItem.id));
-    return (sameCategory.length > 0 ? sameCategory : fallback).slice(0, 12);
+    const fallback = items.filter(
+        item => String(item.id) !== String(currentItem.id)
+    );
+
+    return sameCategory.length > 0 ? sameCategory : fallback;
 }
 
 export function renderArticleText(text) {
